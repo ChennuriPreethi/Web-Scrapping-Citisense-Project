@@ -18,7 +18,7 @@ It provides a sidebar navigation with:
 - **Traffic**
 - **Weather**
 - **Events** 
-Pages:
+- Pages:
 - `traffic_page.py` → reads traffic table from DB and shows filters + charts (region, authority, road, year range, etc.) 
 - `weather_page.py` → reads weather table from DB and shows KPIs + charts (rainy/sunny/cloudy intervals, hottest day, max wind, etc.)
 - `events_page.py` → scrapes event listings, stores events, and runs time-based analysis 
@@ -102,9 +102,9 @@ cd Web-Scrapping-Citisense-Project
 
 ## Create a virtual environment
 python -m venv .venv
-# Windows:
+#### Windows:
 .venv\Scripts\activate
-# macOS/Linux:
+#### macOS/Linux:
 source .venv/bin/activate
 
 ## Install dependencies
