@@ -17,12 +17,11 @@ It provides a sidebar navigation with:
 - **Home**
 - **Traffic**
 - **Weather**
-- **Events** :contentReference[oaicite:1]{index=1}
-
+- **Events** 
 Pages:
-- `traffic_page.py` → reads traffic table from DB and shows filters + charts (region, authority, road, year range, etc.) :contentReference[oaicite:2]{index=2}  
-- `weather_page.py` → reads weather table from DB and shows KPIs + charts (rainy/sunny/cloudy intervals, hottest day, max wind, etc.) :contentReference[oaicite:3]{index=3}  
-- `events_page.py` → scrapes event listings, stores events, and runs time-based analysis :contentReference[oaicite:4]{index=4}  
+- `traffic_page.py` → reads traffic table from DB and shows filters + charts (region, authority, road, year range, etc.) 
+- `weather_page.py` → reads weather table from DB and shows KPIs + charts (rainy/sunny/cloudy intervals, hottest day, max wind, etc.)
+- `events_page.py` → scrapes event listings, stores events, and runs time-based analysis 
 
 ---
 
@@ -30,7 +29,7 @@ Pages:
 This repo includes scrapers to extract **Manual Count Points** data from the UK DfT road traffic statistics site:
 
 - `LA_CountPoints.py`  
-  Visits the DfT Local Authorities list and downloads the **Count points JSON** for each authority into `countpoints_json/` :contentReference[oaicite:5]{index=5}
+  Visits the DfT Local Authorities list and downloads the **Count points JSON** for each authority into `countpoints_json/`
 
 - `MA_CountPoints.py`  
   Reads those JSON files to collect `count_point_id` values, then visits each manual count point page and scrapes:
@@ -38,7 +37,7 @@ This repo includes scrapers to extract **Manual Count Points** data from the UK 
   - **AADF table** (vehicle counts by year)  
   Output:
   - `site_details.csv`
-  - `aadf_details.csv` :contentReference[oaicite:6]{index=6}
+  - `aadf_details.csv`
 
 ---
 
@@ -52,13 +51,13 @@ You have two scripts for preprocessing and loading traffic datasets:
   - YoY growth columns per vehicle type
   - total traffic + YoY growth
   - outlier z-scores + scaling
-  Then uploads into a DB table: `traffic_data` :contentReference[oaicite:7]{index=7}
+  Then uploads into a DB table: `traffic_data` 
 
 - `load_to_sqlserver.py`  
   Similar preprocessing logic, plus SQL Server helpers:
   - ensures DB exists
   - maps pandas dtypes → SQL Server types
-  - intended to create/load a `traffic_data` table into SQL Server :contentReference[oaicite:8]{index=8}
+  - intended to create/load a `traffic_data` table into SQL Server
 
 ---
 
@@ -69,16 +68,16 @@ You have two scripts for preprocessing and loading traffic datasets:
   - start/end datetime
   - venue (when available)
   - month/day/hour breakdown
-  Stores in a DB table called `london_events` :contentReference[oaicite:9]{index=9}
+  Stores in a DB table called `london_events` 
 
 Notes:
-- Uses spaCy model `en_core_web_sm` (already pinned in requirements). :contentReference[oaicite:10]{index=10}
+- Uses spaCy model `en_core_web_sm` (already pinned in requirements). 
 
 ---
 
 ### 5) Weather scraping + storage
 - `weather_data.py`  
-  Uses Selenium and writes forecasts into a DB table (the dashboard expects: `weather_forecasts`). :contentReference[oaicite:11]{index=11}
+  Uses Selenium and writes forecasts into a DB table (the dashboard expects: `weather_forecasts`). 
 
 ---
 
@@ -89,7 +88,7 @@ Notes:
 - pandas / numpy / scipy
 - SQLAlchemy (+ pyodbc for SQL Server)
 - Altair + amCharts (embedded in Streamlit)
-- spaCy `en_core_web_sm` :contentReference[oaicite:12]{index=12}
+- spaCy `en_core_web_sm` 
 
 ---
 
